@@ -112,4 +112,22 @@ router.get("/logoutStudent", (req,res) =>{
         .send();
 });
 
+//Am I logged in
+
+router.get("/LoggedInStudent",(req,res) => {
+        try{
+            const token = req.cookies.token;
+            
+            if(!token)
+                return res.json(false);
+    
+            jwt.verify(token, process.env.JWT_SECRET);
+            res.send(true);
+
+        }catch(err){
+            console.error(err);
+            res.json(false);
+        };
+});
+
 module.exports = router;

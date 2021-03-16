@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import LoginStudent from './Auth/LoginStudent';
 import RegisterStudent from './Auth/RegisterStudent';
 import Header from './Components/Header';
 
@@ -11,7 +12,7 @@ function Router() {
                     <RegisterStudent />
                 </Route>
                 <Route path = '/LoginStudent'>
-                    <div>Login Student</div>
+                    <LoginStudent />
                 </Route>
                 <Route path = '/'>
                     <Header />

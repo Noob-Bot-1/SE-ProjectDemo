@@ -1,23 +1,20 @@
 import axios from 'axios';
 import React,{useState} from 'react';
 
-
-function RegisterStudent() {
+function LoginStudent() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
-    const [passwordVerify,setPasswordVerify] = useState("");
 
-    async function registerStudent(e) {
+    async function loginStudent(e) {
         e.preventDefault();
 
         try {
-            const registerStudentData = {
+            const loginStudentData = {
                 email,
                 password,
-                passwordVerify,
             };
 
-            await axios.post("http://localhost:5000/auth/registerStudent", registerStudentData);
+            await axios.post("http://localhost:5000/auth/loginStudent", loginStudentData);
 
         }catch (err) {
             console.error(err);
@@ -26,9 +23,9 @@ function RegisterStudent() {
 
     return (
         <div>
-            <h1>Register a new Student account</h1>
+            <h1>Login to a Student account</h1>
             <form
-                onSubmit = {registerStudent}
+                onSubmit = {loginStudent}
             >
                 <input 
                     type='email' 
@@ -42,16 +39,10 @@ function RegisterStudent() {
                     onChange = {(e) => setPassword(e.target.value)}
                     value= {password} 
                 />
-                <input 
-                    type='password' 
-                    placeholder = 'Verify your Password' 
-                    onChange = {(e) => setPasswordVerify(e.target.value)}
-                    value= {passwordVerify}
-                />
-                <button type = 'submit'>Register</button>
+                <button type = 'submit'>Login</button>
             </form>
         </div>
     )
 }
 
-export default RegisterStudent;
+export default LoginStudent

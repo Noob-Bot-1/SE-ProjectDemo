@@ -1,9 +1,14 @@
 import axios from 'axios';
-import React,{useState} from 'react';
+import React,{useContext, useState} from 'react';
+import { useHistory } from 'react-router';
+import AuthContext from '../Context/AuthContext';
 
 function LoginStudent() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+
+    const {getLoggedIn} = useContext(AuthContext);
+    const history = useHistory();
 
     async function loginStudent(e) {
         e.preventDefault();
@@ -15,6 +20,8 @@ function LoginStudent() {
             };
 
             await axios.post("http://localhost:5000/auth/loginStudent", loginStudentData);
+            await getLoggedIn();
+            history.push("/");
 
         }catch (err) {
             console.error(err);

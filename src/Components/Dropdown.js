@@ -29,11 +29,6 @@ function Dropdown() {
                         Edit Profile
                     </Link>
                 </li>
-                <li className = 'dropdown-item'>
-                    <Link to = '/' className = 'dropdown-link' onClick={() => setClick(false)}>
-                        Logout
-                    </Link>
-                </li>
             </ul>          
             
         </div>

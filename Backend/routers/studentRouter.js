@@ -6,10 +6,10 @@ const jwt = require("jsonwebtoken");
 //register
 router.post("/registerStudent",async (req,res) => {
     try{
-        const{email, password, passwordVerify} = req.body;
+        const{email, password, passwordVerify, firstName, lastName, semester, branch} = req.body;
 
         //validation
-        if(!email || !password || !passwordVerify)
+        if(!email || !password || !passwordVerify || !firstName || !lastName ||!semester ||!branch)
             return res
                .status(400)
                .json({errorMessage: "Please enter all details"});
@@ -36,7 +36,7 @@ router.post("/registerStudent",async (req,res) => {
 
         //Storing in database
         const newStudent = new Student({
-            email,passwordHash
+            email,passwordHash,firstName,lastName,semester,branch
         });
 
         const savedStudent = await newStudent.save();

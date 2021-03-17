@@ -45,7 +45,7 @@ function Header() {
       };
 
     return (
-        <nav className = 'header'>
+        <nav className = 'navbar'>
           {!loggedIn && (
             <>
               <div className='header-items'>

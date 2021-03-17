@@ -2,6 +2,8 @@ import axios from 'axios';
 import React,{useContext, useState} from 'react';
 import { useHistory } from 'react-router';
 import AuthContext from '../Context/AuthContext';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './RegisterStudent.css'
 
 function LoginStudent() {
     const [email,setEmail] = useState("");
@@ -31,21 +33,27 @@ function LoginStudent() {
     return (
         <div>
             <h1>Login to a Student account</h1>
-            <form
+            <form className="create"
                 onSubmit = {loginStudent}
             >
+                <div className="props">
+                <label >Email: </label>
                 <input 
                     type='email' 
                     placeholder = 'Email' 
                     onChange = {(e) => setEmail(e.target.value)}
                     value= {email}
                 />
+                </div>
+                <div className="props">
+                <label htmlFor="">Password</label>
                 <input 
                     type='password'    
                     placeholder = 'Password'
                     onChange = {(e) => setPassword(e.target.value)}
                     value= {password} 
                 />
+                </div>
                 <button type = 'submit'>Login</button>
             </form>
         </div>

@@ -2,7 +2,9 @@ import React, { useContext } from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import LoginStudent from './Auth/LoginStudent';
 import RegisterStudent from './Auth/RegisterStudent';
+import Footer from './Components/footer';
 import Header from './Components/Header';
+import LandingPage from './Components/landingpage';
 import AuthContext from './Context/AuthContext';
 
 function Router() {
@@ -11,21 +13,25 @@ function Router() {
     return (
         <BrowserRouter>
             <Header />
+            <Route exact path = '/'>
+                    <LandingPage />
+                </Route>
             <Switch>
                 {!loggedIn && (
                     <>
-                        <Route path = '/RegisterStudent'>
+                        <Route exact path = '/RegisterStudent'>
                             <RegisterStudent />
                         </Route>
-                        <Route path = '/LoginStudent'>
+                        <Route exact path = '/LoginStudent'>
                             <LoginStudent />
                         </Route>
                     </>
                 )}
-                <Route path = '/'>
-                    <div>Home</div>
+                <Route exact path = '/'>
+                    <LandingPage />
                 </Route>
             </Switch>
+            <Footer />
         </BrowserRouter>
     
 )}

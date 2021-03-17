@@ -64,11 +64,11 @@ function Header() {
                 </Link>
               </div>
 
-              <div className = 'header-coursesoffered' onMouseEnter={onmouseEnter}
+              {/* <div className = 'header-coursesoffered' onMouseEnter={onmouseEnter}
               onMouseLeave={onmouseLeave}>
                   Courses Offered
                   {course && <CourseOffered />}
-              </div>              
+              </div>               */}
 
               <div className = 'header-search'>
                   <input type='text' placeholder='Search Course'/>              

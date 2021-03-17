@@ -26,9 +26,11 @@
     color: #fff;
     border: 0;
     padding: 10px;
+    
     border-radius: 8px;
     cursor: pointer;
     margin-bottom: 1em;
+    margin-bottom: 50px;
   }
   input:placeholder-shown {
     font-style: italic;

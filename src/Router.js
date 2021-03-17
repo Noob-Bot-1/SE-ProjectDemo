@@ -27,9 +27,9 @@ function Router() {
                         </Route>
                     </>
                 )}
-                <Route exact path = '/'>
+                {/* <Route exact path = '/'>
                     <LandingPage />
-                </Route>
+                </Route> */}
             </Switch>
             <Footer />
         </BrowserRouter>
